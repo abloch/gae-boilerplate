@@ -10,5 +10,11 @@ libraries:
   version: latest
 
 handlers:
+- url: /bootstrap
+  static_dir: static/bootstrap
+
+- url: /jquery
+  static_dir: static/jquery
+
 - url: /.*
   script: app.application

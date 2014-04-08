@@ -1,8 +1,28 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-  	<title>{{title|default('welcome to my awesome app')}}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title|default('welcome to my awesome app')}}</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <body>
-    under construction
+  	<div class="page-header">
+    	<h1>{{header|default('Hello, world!')}}</h1>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <div class=container>
+    	{% block content %}
+    		<div class="jumbotron">
+			  <h1>my awesome application!</h1>
+			  <p>this is the best app in the world</p>
+			</div>
+    	{% endblock %}
+    </div>
   </body>
 </html>
