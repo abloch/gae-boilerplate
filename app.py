@@ -1,19 +1,16 @@
 #!/usr/bin/env python 
 import webapp2
+import jinja2,os
 
-MAIN_PAGE_HTML = """\
-<!doctype html>
-<html>
-  <body>
-    under construction
-  </body>
-</html>
-"""
-
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)+"/templates"),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        self.response.write(MAIN_PAGE_HTML)
+    	template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.write(template.render())
 
 application = webapp2.WSGIApplication([
     ('/', MainPage),
